@@ -1,17 +1,22 @@
 {{>navbar-burger}}
 
   <div class="navbar-menu mt-4" id="navMenu">
-    <div class="navbar-start">
-      <div class="navbar-item">
-        <div class="buttons is-mobile">
-          <a id="dashboard" class="button is-rounded" href="/dashboard"> Dashboard </a>
-          <a id="about" class="button is-rounded" href="/about"> About </a>
-        </div>
-      </div>
-    </div>
     <div class="navbar-end">
       <div class="navbar-item">
-        <a id="logout" class="button is-rounded" href="/logout"> Logout </a>
+        <div class="dropdown is-hoverable">
+          <div class="dropdown-trigger">
+            <button class="button is-white mr-5" aria-haspopup="true" aria-controls="dropdown-menu">
+              {{>icons/menu}}
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content has-text-justified">
+              <a id="dashboard" class="button is-rounded m-1" href="/dashboard"> Dashboard </a>
+              <a id="about" class="button is-rounded m-1" href="/about"> About </a>
+            </div>
+          </div>
+        </div>
+        <a id="logout" class="button is-rounded ml-5" href="/logout"> Logout </a>
       </div>
     </div>
   </div>
@@ -19,4 +24,4 @@
 
 <script>
   document.getElementById("{{active}}").classList.add("is-dark");
-</script>
+</script> 
