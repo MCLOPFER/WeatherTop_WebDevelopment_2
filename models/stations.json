@@ -2,8 +2,12 @@
   "file": "./models/stations.json",
   "stations": [
     {
+      "title": "test3",
+      "_id": "7db8eb6e-9c72-4dd2-a81f-880ae7cb1b24"
+    },
+    {
       "title": "test",
-      "_id": "bd3bd360-3feb-4996-b516-34571b900109"
+      "_id": "0af56957-3aa7-4438-a0fa-e35b4be9cf1e"
     }
   ]
 }

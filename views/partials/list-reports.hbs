@@ -1,0 +1,44 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th class="has-text-centered">Code</th>
+      <th class="has-text-centered">Temperature</th>
+      <th class="has-text-centered">Wind Speed</th>
+      <th class="has-text-centered">Wind Direction</th>
+      <th class="has-text-centered">Pressure</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="has-text-centered">
+    {{#each station.reports}}
+    <tr>
+      <td class="pt-5">
+        {{code}}
+      </td>
+      <td class="pt-5">
+        {{temperature}}
+      </td>
+      <td class="pt-5">
+        {{windSpeed}}
+      </td>
+      <td class="pt-5">
+        {{windDirection}}
+      </td>
+      <td class="pt-5">
+        {{pressure}}
+      </td>
+      <td>
+        <a href="/station/{{../station._id}}/deletereport/{{_id}}" class="button">
+          {{>icons/delete}}
+        </a>
+      </td>
+      <td>
+        <a href="/station/{{../station._id}}/editreport/{{_id}}" class="button">
+          {{>icons/edit}}
+        </a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
