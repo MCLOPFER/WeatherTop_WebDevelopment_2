@@ -50,3 +50,4 @@ export const accountsController = {
     return await userStore.getUserByEmail(userEmail);
   },
 };
+

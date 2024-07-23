@@ -1,0 +1,12 @@
+{
+  "file": "./models/users.json",
+  "users": [
+    {
+      "firstName": "Mari Cruz",
+      "lastName": "Lopez",
+      "email": "test@test.test",
+      "password": "test",
+      "_id": "dcfe8299-7072-4383-9e34-63591504c1be"
+    }
+  ]
+}
