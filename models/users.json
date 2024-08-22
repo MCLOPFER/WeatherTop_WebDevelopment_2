@@ -2,11 +2,39 @@
   "file": "./models/users.json",
   "users": [
     {
-      "firstName": "Mari Cruz",
-      "lastName": "Lopez",
-      "email": "test@test.test",
+      "firstName": "jim",
+      "lastName": "bob",
+      "email": "jimbob@gmail.com",
+      "password": "jimbob",
+      "_id": "dccd21c5-ab94-4b75-b0a2-a49f121e668e"
+    },
+    {
+      "firstName": "paul",
+      "lastName": "pot",
+      "email": "ppot@ppot",
       "password": "test",
-      "_id": "dcfe8299-7072-4383-9e34-63591504c1be"
+      "_id": "f8daaa16-d1a7-4b84-a3f6-948139200194"
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "test3@test3",
+      "password": "test2",
+      "_id": "8e3798b6-38dd-4a4d-8304-789d710c39af"
+    },
+    {
+      "firstName": "maricruz",
+      "lastName": "lopez",
+      "email": "maricruz@lopez",
+      "password": "maricruzlopez",
+      "_id": "2db4fed8-0c22-4d1c-a6c2-ba87f5f37350"
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "email": "test@test",
+      "password": "test",
+      "_id": "95a7eb66-813f-4e63-8ede-6487ca6ffdf3"
     }
   ]
 }

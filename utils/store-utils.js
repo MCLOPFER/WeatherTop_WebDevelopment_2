@@ -13,3 +13,12 @@ export function initStore(dataType) {
   }
   return db;
 }
+
+export function sortListAlphabeticallyByName(inputList) {
+  return inputList.sort((a,b) => a.name.localeCompare(b.name));
+}
+
+export function sortByDate(inputList){
+  return inputList.sort((a,b) => Date.parse(b) - Date.parse(a))
+}
+

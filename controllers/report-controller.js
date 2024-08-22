@@ -1,7 +1,7 @@
 
+import dayjs from "dayjs";
 import { reportStore } from "../models/report-store.js";
 import { stationStore } from "../models/station-store.js";
-
 
 export const reportController = {
     async index(request, response) {
@@ -19,11 +19,14 @@ export const reportController = {
     async update(request, response) {
       const stationId = request.params.stationid;
       const reportId = request.params.reportid;
+      const date = new Date;
+      const now = dayjs(date).format('MM-DD-YYYY,hh:mm:SSS a');
       const updatedReport = {
+        dateAndTime: now,
         code: Number(request.body.code),
         temperature: Number(request.body.temperature),
         windSpeed: Number(request.body.windSpeed),
-        windDirection: Number(request.body.windDirection),
+        windDirection: request.body.windDirection,
         pressure: Number(request.body.pressure),
       };
       console.log(`Updating Report ${reportId} from Station ${stationId}`);

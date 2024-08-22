@@ -1,7 +1,11 @@
-<form class="box mt-6" action="/station/{{station._id}}/addreport" method="POST">
-  <label>Enter Report Details:</label>
-  <div class="field is-horizontal">
-    <div class="field-body has-text-centered">
+<form class="box mt-6 mb-0 pb-0" action="/station/{{station._id}}/addreport" method="POST">
+  <div class="box title  is-5 has-text-centered">Enter Report Details:</div>
+  <div class="field is-horizontal mt-6">
+    <div class="field-body">
+      <div class="field">
+        <label class="label mt-5">Date & Time</label>
+        <input class="input" type="text" placeholder="00/00/0000 - 00:00:00" name="dateAndTime" disabled>
+      </div>
       <div class="field">
         <label class="label mt-5">Code</label>
         <input class="input" type="text" placeholder="00" name="code">
@@ -10,13 +14,37 @@
         <label class="label mt-5">Temperature</label>
         <input class="input" type="text" placeholder="00.0C" name="temperature">
       </div>
+    </div>
+  </div>
+  <div class="field is-horizontal">
+    <div class="field-body ">
       <div class="field">
         <label class="label mt-5">Wind Speed</label>
         <input class="input" type="text" placeholder="00.00kMh" name="windSpeed">
       </div>
       <div class="field">
         <label class="label mt-5">Wind Direction</label>
-        <input class="input" type="text" placeholder="000deg" name="windDirection">
+        <div class="select is-fullwidth">
+          <select class="is-desktop" name="windDirection">
+            <option selected="selected" disabled selected>Select an option</option>
+            <option value="N">North (0°)</option>
+            <option value="NNE">North-northeast (22.5°)</option>
+            <option value="NE">North-east (45°)</option>
+            <option value="ENE">East-northeast (67.5°)</option>
+            <option value="E">East (90°)</option>
+            <option value="ESE">East-southeast (112.5°)</a>
+            <option value="SE">South-east (135°)</option>
+            <option value="SSE">South-southeast (157.5°)</option>
+            <option value="S">South (180°)</option>
+            <option value="SSW">South-southwest (202.5°)</option>
+            <option value="SW">South-west (225°)</option>
+            <option value="WSW">West-southwest (247.5°)</option>
+            <option value="W">West (270°)</option>
+            <option value="WNW">West-northwest (292.5°)</option>
+            <option value="NW">North-west (315°)</option>
+            <option value="NNW">North-northwest (337.5°)</option>
+          </select>
+        </div>
       </div>
       <div class="field">
         <label class="label mt-5">Pressure</label>
@@ -24,5 +52,13 @@
       </div>
     </div>
   </div>
-  <button class="button is-info is-rounded is-outlined is-fullwidth">Add Report</button>
+  <div class="box mt-6 pl-0">
+    <button class="button is-outlined is-info is-rounded">Add Report</button>
+  </div>
 </form>
+<form class="box p-0" action="/station/{{station._id}}/generatereport" method="POST">
+  <div class="box pt-0">
+    <button class="button is-outlined is-danger is-rounded">Auto Generate Reading</button>
+  </div>
+</form>
+

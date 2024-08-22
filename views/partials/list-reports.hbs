@@ -1,6 +1,13 @@
+
+<div class="box has-text-centered">
+  <div class="columns is-mobile">
+   {{>station-summary}}
+  </div>
+</div>
 <table class="table is-fullwidth">
   <thead>
     <tr>
+      <th class="has-text-centered">Date & Time</th>
       <th class="has-text-centered">Code</th>
       <th class="has-text-centered">Temperature</th>
       <th class="has-text-centered">Wind Speed</th>
@@ -14,19 +21,27 @@
     {{#each station.reports}}
     <tr>
       <td class="pt-5">
+        {{dateAndTime}}
+      </td>
+      <td class="pt-5">
         {{code}}
+        {{reading.code}}
       </td>
       <td class="pt-5">
         {{temperature}}
+        {{reading.temperature}}
       </td>
       <td class="pt-5">
         {{windSpeed}}
+        {{reading.windSpeed}}
       </td>
       <td class="pt-5">
         {{windDirection}}
+        {{reading.windDirection}}
       </td>
       <td class="pt-5">
         {{pressure}}
+        {{reading.preassure}}
       </td>
       <td>
         <a href="/station/{{../station._id}}/deletereport/{{_id}}" class="button">
@@ -42,3 +57,4 @@
     {{/each}}
   </tbody>
 </table>
+

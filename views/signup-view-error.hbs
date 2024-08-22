@@ -2,6 +2,14 @@
 
 <section class="section">
   <h1 class="title">Sign up</h1>
+  <div class="columns is-vcentered">
+    <div class="column is-1 has-text-centered">
+      {{>icons/error}}
+    </div>
+    <div class="column has-text-danger">
+      ERROR! Invalid details entered
+    </div>
+  </div>
   <form action="/register" method="POST">
     <label class="label">Name</label>
     <div class="field is-horizontal">

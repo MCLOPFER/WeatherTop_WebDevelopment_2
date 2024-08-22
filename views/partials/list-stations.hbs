@@ -1,21 +1,38 @@
 {{#each stations}}
-<div class="box box-link-hover-shadow">
-  <h2 class="columns">
-    <div class="column is-two-thirds">
-      <a href="/station/{{_id}}" class="title">
-        {{title}}
-      </a>
+<div class="box mb-0">
+  <div class="columns is-mobile has-text-centered">
+    <div class=" column is-fullwidth button is-light">
+      <a href="/station/{{_id}}" class="is-size-4 has-text-white is-capitalized">
+      <div class="columns is-mobile">
+        <div class="column">
+          <div class="box has-background-black">
+            <div class="columns mb-0">
+              <div class="column is-size-4 has-text-white has-text-weight-bold is-capitalized pt-4">
+                {{name}} 
+              </div>
+              <div class="column">
+                {{>icons/location}}
+              </div>
+            </div>
+            <div class="is-size-5 has-text-white has-text-left has-text-grey-light">
+              Lat: {{latitude}} 
+              <br>
+              Lng: {{longitude}}
+            </div>
+          </div>
+        </div>
+        {{>station-summary}}
+      </div>
     </div>
-    <div class="column">
-      <a href="/station/{{_id}}" class="button">
-        {{>icons/open}}
-      </a>
-    </div>
-    <div class="column">
-      <a href="/dashboard/deletestation/{{_id}}" class=" button">
+  </div>
+</div>
+<div class="box p-0 mt-0">
+  <div class="columns is-mobile has-text-centered">
+    <div class="column has-text-centered mb-6">
+      <a href="/dashboard/deletestation/{{_id}}" class="button is-light">
         {{>icons/delete}}
       </a>
     </div>
-  </h2>
+  </div>
 </div>
 {{/each}}

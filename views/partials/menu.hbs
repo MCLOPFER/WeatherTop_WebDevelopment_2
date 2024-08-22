@@ -1,18 +1,21 @@
 {{>navbar-burger}}
 
-  <div class="navbar-menu mt-4" id="navMenu">
+  <div class="navbar-menu mt-4" style="background: none;" id="navMenu">
     <div class="navbar-end">
       <div class="navbar-item">
+        <a id="dashboard" class="button is-rounded m-1" href="/dashboard"> Dashboard </a>
+        <a id="about" class="button is-rounded m-1" href="/about"> About </a>
         <div class="dropdown is-hoverable">
           <div class="dropdown-trigger">
             <button class="button is-white mr-5" aria-haspopup="true" aria-controls="dropdown-menu">
-              {{>icons/menu}}
+              {{>icons/user}}
             </button>
           </div>
-          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-menu"  id="dropdown-menu" role="menu">
             <div class="dropdown-content has-text-justified">
-              <a id="dashboard" class="button is-rounded m-1" href="/dashboard"> Dashboard </a>
-              <a id="about" class="button is-rounded m-1" href="/about"> About </a>
+              <a id="user" class="button is-light m-1" href="/user/{{userid}}"> User Account </a>
+              <a id="userPicture" class="button is-light m-1" href="/userPicture"> Edit profile picture </a>
+              <a id="admin" class="button is-light m-1" href="/admin"> Admin login </a>
             </div>
           </div>
         </div>
@@ -23,5 +26,5 @@
 </nav>
 
 <script>
-  document.getElementById("{{active}}").classList.add("is-dark");
+  document.getElementById("{{active}}").classList.add("is-info");
 </script> 

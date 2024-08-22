@@ -1,9 +1,25 @@
 {{> menu}}
 
 <section class="section">
-  <div class="title has-text-centered mb-6 is-uppercase">
-    {{station.title}}
+  <div class="columns has-text-centered mb-5">
+    <div class="column is-1">
+      <a id="back" class="button is-white" href="/dashboard">{{>icons/back}}</a>
+    </div>
+    <div class="column">
+      <div class="title is-uppercase">
+        {{station.name}}
+      </div>
+      <div class="columns">
+        <div class="column has-text-right">
+          Lat: {{station.latitude}}
+        </div>
+        <div class="column has-text-left">
+          Lon: {{station.longitude}}
+        </div>
+      </div>
+    </div>
   </div>
   {{> list-reports}}
   {{> add-report}}
+  {{!-- {{> generate-report}} --}}
 </section>

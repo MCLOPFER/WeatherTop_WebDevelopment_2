@@ -2,20 +2,54 @@
   "file": "./models/stations.json",
   "stations": [
     {
-      "title": "test3",
-      "_id": "7db8eb6e-9c72-4dd2-a81f-880ae7cb1b24"
-    },
-    {
-      "title": "test",
-      "_id": "0af56957-3aa7-4438-a0fa-e35b4be9cf1e"
-    },
-    {
-      "title": "test2",
+      "name": "test2",
+      "userid": "dccd21c5-ab94-4b75-b0a2-a49f121e668e",
       "_id": "db30e7e7-0965-4a3b-aa60-e4ddec1f1729"
     },
     {
-      "title": "test5",
+      "name": "test5",
+      "userid": "dcfe8299-7072-4383-9e34-63591504c1be",
       "_id": "4641eea3-4139-4a41-ae60-97b739e98bf4"
+    },
+    {
+      "name": "Test3",
+      "userid": "dccd21c5-ab94-4b75-b0a2-a49f121e668e",
+      "_id": "52420c9a-c09f-4ec9-959b-2e303151560d"
+    },
+    {
+      "name": "test",
+      "Latitude": 0,
+      "Longitude": 0,
+      "userid": "dcfe8299-7072-4383-9e34-63591504c1be",
+      "_id": "44991a25-0192-49a8-8c63-1c4bf1c3f76c"
+    },
+    {
+      "name": "test",
+      "Latitude": 0,
+      "Longitude": 0,
+      "userid": "f8daaa16-d1a7-4b84-a3f6-948139200194",
+      "_id": "ae17b0fe-3be9-4856-b414-aaaaddf4de38"
+    },
+    {
+      "name": "London",
+      "latitude": 44.34,
+      "longitude": 10.99,
+      "userid": "f0faa11a-139e-490e-b660-1870ae715c68",
+      "_id": "07185526-69e6-44e3-9254-27f343dc2e5f"
+    },
+    {
+      "name": "test",
+      "latitude": 0,
+      "longitude": 0,
+      "userid": "95a7eb66-813f-4e63-8ede-6487ca6ffdf3",
+      "_id": "f8e4ac46-f63b-42d3-9bb9-ad999639edcd"
+    },
+    {
+      "name": "hello",
+      "latitude": 0,
+      "longitude": 0,
+      "userid": "95a7eb66-813f-4e63-8ede-6487ca6ffdf3",
+      "_id": "6e10c796-a492-4069-ae00-cbaa5540a821"
     }
   ]
 }
