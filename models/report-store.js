@@ -1,72 +1,60 @@
 import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
 import { cardinalDirectionToDegrees } from "../utils/report-utils.js";
+import { degreesToCardinalDirection } from "../utils/report-utils.js";
+import { kelvinToCelcius } from "../utils/station-utils.js";
+import { kelvinToFahrenheit } from "../utils/station-utils.js";
+import { getWeatherIcon } from "../utils/store-utils.js";
+import axios from "axios";
 
-const db = initStore("reports");
+const reportsdb = initStore("reports");
 
 export const reportStore = {
   async getAllReports() {
-    await db.read();
-    return db.data.reports;
-  },
+    await reportsdb.read();
+    return reportsdb.data.reports;
+ },
 
   async addReport(stationId, report) {
-    await db.read();
+    await reportsdb.read();
     report._id = v4();
     report.stationid = stationId;
     report.windDirection = cardinalDirectionToDegrees(report.windDirection);
-    db.data.reports.push(report);
-    await db.write();
+    reportsdb.data.reports.push(report);
+    await reportsdb.write();
     return report;
   },
 
-  // async generateReport(stationId) {
-  //   await db.read();
-  //   const report = {
-  //     _id: v4(),
-  //     stationid: stationId,
-  //     dateAndTime: "RANDOM",
-  //     code: "RANDOM",
-  //     temperature: "RANDOM",
-  //     windSpeed: "RANDOM",
-  //     windDirection: "RANDOM",
-  //     pressure: "RANDOM"
-  //   }
-  //   db.data.reports.push(report);
-  //   await db.write();
-  //   return report;
-  // },
-
   async getReportsByStationId(id) {
-    await db.read();
-    return db.data.reports.filter((report) => report.stationid === id);
+    await reportsdb.read();
+    return reportsdb.data.reports.filter((report) => report.stationid === id);
   },
 
   async getReportById(id) {
-    await db.read();
-    return db.data.reports.find((report) => report._id === id);
+    await reportsdb.read();
+    return reportsdb.data.reports.find((report) => report._id === id);
   },
 
   async deleteReport(id) {
-    await db.read();
-    const index = db.data.reports.findIndex((report) => report._id === id);
-    db.data.reports.splice(index, 1);
-    await db.write();
+    await reportsdb.read();
+    const index = reportsdb.data.reports.findIndex((report) => report._id === id);
+    reportsdb.data.reports.splice(index, 1);
+    await reportsdb.write();
   },
 
   async deleteReportList(reportList) {
-    await db.read();
+    await reportsdb.read();
     reportList.forEach(reportToDelete => {
       console.log(`deleting report: ${reportToDelete._id}`)
-      const index = db.data.reports.findIndex((report) => report._id === reportToDelete._id);
-      db.data.reports.splice(index, 1);
+      const index = reportsdb.data.reports.findIndex((report) => report._id === reportToDelete._id);
+      reportsdb.data.reports.splice(index, 1);
     });
-    await db.write();
+    await reportsdb.write();
   },
 
   async deleteAllReports() {
-    db.data.reports = [];
-    await db.write();
+    reportsdb.data.reports = [];
+    await reportsdb.write();
   },
 
   async updateReport(reportId, updatedReport) {
@@ -77,6 +65,53 @@ export const reportStore = {
     report.windSpeed = updatedReport.windSpeed;
     report.windDirection = cardinalDirectionToDegrees(updatedReport.windDirection);
     report.pressure = updatedReport.pressure;
-    await db.write();
+    await reportsdb.write();
   },
+
+  async getReportCurrentWeather(station){
+    const APIKey = "d2b75aa8b4380e1735ee01b663aea663";
+    let generateReport ={};
+    const stationName = station;
+    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${stationName}&appid=${APIKey}`;
+    const result =  await axios.get(requestUrl);
+    if (result.status == 200) {
+      const currentWeather = result.data;
+      generateReport.weatherIcon = getWeatherIcon(currentWeather.weather[0].id);
+      generateReport.code = currentWeather.weather[0].id;
+      generateReport.description = currentWeather.weather[0].description;
+      generateReport.temperature = kelvinToCelcius(currentWeather.main.temp);
+      generateReport.tempFahrenheit = kelvinToFahrenheit(currentWeather.main.temp);
+      generateReport.tempMin = currentWeather.main.temp_min;
+      generateReport.tempMax = currentWeather.main.temp_max;
+      generateReport.tempFeelsLike = currentWeather.main.feels_like;
+      generateReport.windSpeed = currentWeather.wind.speed;
+      generateReport.pressure = currentWeather.main.pressure;
+      generateReport.windDirection = degreesToCardinalDirection(currentWeather.wind.deg);
+      generateReport.windDirectionDegrees = currentWeather.wind.deg;
+      generateReport.visibility = currentWeather.visibility;
+      generateReport.latitude = currentWeather.coord.lat;
+      generateReport.longitude = currentWeather.coord.lon;
+    }
+
+    const latestReport = {
+    name: stationName,
+    latitude: generateReport.latitude,
+    longitude: generateReport.longitude,
+    weatherIcon: generateReport.weatherIcon,
+    code: generateReport.code,
+    description: generateReport.description,
+    temperature: generateReport.temperature,
+    tempFahrenheit: generateReport.tempFahrenheit,
+    tempFeelsLike: generateReport.tempFeelsLike,
+    tempMin: generateReport.tempMin,
+    tempMax: generateReport.tempMax,
+    windSpeed: generateReport.windSpeed,
+    windDirection: generateReport.windDirection,
+    windDirectionDegrees: generateReport.windDirectionDegrees,
+    pressure: generateReport.pressure,
+    weatherIcon: generateReport.weatherIcon
+    }
+
+    return latestReport;
+  }
 };

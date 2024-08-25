@@ -11,15 +11,13 @@
 
 <script>
 const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-$navbarBurgers.forEach(page => {
+  $navbarBurgers.forEach(page => {
     page.addEventListener("click", () => {
+       const target = page.dataset.target;
+       const $target = document.getElementById(target); 
 
-        const target = page.dataset.target;
-        const $target = document.getElementById(target);
-        
-        page.classList.toggle("is-active");
-        $target.classList.toggle("is-active");
-
+       page.classList.toggle("is-active");
+       $target.classList.toggle("is-active");
     })
 });
 </script>

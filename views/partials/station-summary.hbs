@@ -1,50 +1,75 @@
 
-  
-    <div class="column">
-      <div class="box has-background-black">
-        <div class="columns">
-          <div class="column is-size-4 has-text-white has-text-weight-bold">
-            Weather
-          </div>
-          <div class="column">
-            {{>icons/location}}
-          </div>
+
+  <div class="column">
+    <div class="box has-background-black" style="height: 100%;">
+      <div class="columns">
+        <div class="column is-size-5 has-text-white has-text-weight-bold">
+          Weather
+        </div>
+        <div class="column" name="weatherIcon">
+          {{latestReport.weatherIcon}}{{station.latestReport.weatherIcon}}
         </div>
       </div>
-    </div>
-    <div class="column">
-      <div class="box has-background-black">
-        <div class="columns">
-          <div class="column is-size-4 has-text-white has-text-weight-bold">
-            Temp
-          </div>
-          <div class="column">
-            {{>icons/temperature}}
-          </div>
-        </div>
+      <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
+        Code: {{latestReport.code}}{{station.latestReport.code}}
+        <br>
+        <div class="is-capitalized">{{latestReport.description}}{{station.latestReport.description}}</div>
       </div>
     </div>
-    <div class="column">
-      <div class="box has-background-black">
-        <div class="columns">
-          <div class="column is-size-4 has-text-white has-text-weight-bold">
-            Wind
-          </div>
-          <div class="column">
-            {{>icons/wind}}
-          </div>
+  </div>
+  <div class="column">
+    <div class="box has-background-black" style="height: 100%;">
+      <div class="columns">
+        <div class="column is-size-5 has-text-white has-text-weight-bold">
+          Temperature
+        </div>
+        <div class="column">
+          {{>icons/temperature}}
         </div>
       </div>
-    </div>
-    <div class="column">
-      <div class="box has-background-black">
-        <div class="columns">
-          <div class="column is-size-4 has-text-white has-text-weight-bold">
-            Pressure
-          </div>
-          <div class="column">
-            {{>icons/pressure}}
-          </div>
-        </div>
+      <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
+        {{latestReport.temperature}}{{station.latestReport.temperature}}°C
+        <br>
+        {{latestReport.tempFahrenheit}}{{station.latestReport.tempFahrenheit}}°F
+        <br>
+        Feels like: {{latestReport.tempFeelsLike}}{{station.latestReport.tempFeelsLike}}
+        <br>
+        Min: {{latestReport.tempMin}}{{station.latestReport.tempMin}}
+        <br>
+        Max: {{latestReport.tempMax}}{{station.latestReport.tempMax}}
       </div>
     </div>
+  </div>
+  <div class="column">
+    <div class="box has-background-black" style="height: 100%;">
+      <div class="columns">
+        <div class="column is-size-5 has-text-white has-text-weight-bold">
+          Wind
+        </div>
+        <div class="column">
+          {{>icons/wind}}
+        </div>
+      </div>
+      <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
+        Speed: {{latestReport.windSpeed}}{{station.latestReport.windSpeed}}
+        <br>
+        Direction: {{latestReport.windDirectionDegrees}} {{latestReport.windDirection}}
+                   {{station.latestReport.windDirectionDegrees}} {{station.latestReport.windDirection}}
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="box has-background-black" style="height: 100%;">
+      <div class="columns">
+        <div class="column is-size-5 has-text-white has-text-weight-bold">
+          Pressure
+        </div>
+        <div class="column">
+          {{>icons/pressure}}
+        </div>
+      </div>
+      <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
+        hPa: {{latestReport.pressure}}{{station.latestReport.pressure}}
+      </div>
+    </div>
+  </div>

@@ -4,7 +4,7 @@
     <div class="field-body">
       <div class="field">
         <label class="label mt-5">Date & Time</label>
-        <input class="input" type="text" placeholder="00/00/0000 - 00:00:00" name="dateAndTime" disabled>
+        <input class="input" type="text" placeholder="00-00-0000, 00:00:000" name="trendLabels" disabled>
       </div>
       <div class="field">
         <label class="label mt-5">Code</label>
@@ -56,7 +56,7 @@
     <button class="button is-outlined is-info is-rounded">Add Report</button>
   </div>
 </form>
-<form class="box p-0" action="/station/{{station._id}}/generatereport" method="POST">
+<form class="box p-0" action="/station/{{station._id}}/generatereport"  method="POST">
   <div class="box pt-0">
     <button class="button is-outlined is-danger is-rounded">Auto Generate Reading</button>
   </div>

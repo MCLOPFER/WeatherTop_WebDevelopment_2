@@ -2,114 +2,24 @@
   "file": "./models/reports.json",
   "reports": [
     {
-      "dateAndTime": "08-22-2024, 04:22:994 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 0,
-      "pressure": 0,
-      "_id": "fb21d87e-d231-4fbe-825d-6488217a1c6a",
-      "stationid": "f8e4ac46-f63b-42d3-9bb9-ad999639edcd"
-    },
-    {
-      "dateAndTime": "08-22-2024,04:24:340 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 67.5,
-      "pressure": 0,
-      "_id": "72517525-c711-461c-b10c-3bec4c3dc81c",
-      "stationid": "6e10c796-a492-4069-ae00-cbaa5540a821"
-    },
-    {
-      "dateAndTime": "08-22-2024, 04:26:144 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 0,
-      "pressure": 0,
-      "_id": "f293fbbf-e810-4cae-be8f-b926b61500f9",
-      "stationid": "6e10c796-a492-4069-ae00-cbaa5540a821"
-    },
-    {
-      "dateAndTime": "08-22-2024, 04:29:134 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 0,
-      "pressure": 0,
-      "_id": "bb6f76cc-73a1-4e17-be1a-dc8834f76722",
-      "stationid": "6e10c796-a492-4069-ae00-cbaa5540a821"
-    },
-    {
-      "dateAndTime": "08-22-2024, 04:29:633 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 0,
-      "pressure": 0,
-      "_id": "d04a16e1-a587-4240-94dc-2eba7ada146c",
-      "stationid": "6e10c796-a492-4069-ae00-cbaa5540a821"
-    },
-    {
-      "dateAndTime": "08-22-2024, 04:29:564 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 0,
-      "pressure": 0,
-      "_id": "e0b80624-bb9c-46a1-a340-a8299063bbf5",
-      "stationid": "f8e4ac46-f63b-42d3-9bb9-ad999639edcd"
-    },
-    {
-      "dateAndTime": "08-22-2024, 04:29:056 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 0,
-      "pressure": 0,
-      "_id": "58b31d49-1530-43cd-a176-288f9952581a",
-      "stationid": "f8e4ac46-f63b-42d3-9bb9-ad999639edcd"
-    },
-    {
-      "dateAndTime": "08-22-2024, 04:30:381 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 0,
-      "pressure": 0,
-      "_id": "adc00845-78c2-4221-b378-3d51f7f18e0a",
-      "stationid": "f8e4ac46-f63b-42d3-9bb9-ad999639edcd"
-    },
-    {
-      "dateAndTime": "08-22-2024, 04:30:162 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 0,
-      "pressure": 0,
-      "_id": "757c675c-9ac5-475e-a31b-f44b4aa53ca6",
-      "stationid": "f8e4ac46-f63b-42d3-9bb9-ad999639edcd"
-    },
-    {
-      "dateAndTime": "08-22-2024, 04:30:894 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 0,
-      "pressure": 0,
-      "_id": "4fc8fed9-2825-4668-beef-dd38dea7afb8",
-      "stationid": "6e10c796-a492-4069-ae00-cbaa5540a821"
-    },
-    {
-      "dateAndTime": "08-22-2024, 04:30:195 pm",
-      "code": 0,
-      "temperature": 0,
-      "windSpeed": 0,
-      "windDirection": 0,
-      "pressure": 0,
-      "_id": "21874959-f970-4107-8c09-749c0d72e9a6",
-      "stationid": "f8e4ac46-f63b-42d3-9bb9-ad999639edcd"
+      "name": "madrid",
+      "latitude": 40.4165,
+      "longitude": -3.7026,
+      "weatherIcon": "../views/partials/icons/sun",
+      "code": 800,
+      "description": "clear sky",
+      "temperature": "32.5",
+      "tempFahrenheit": "90.2",
+      "tempFeelsLike": 303.62,
+      "tempMin": 303.66,
+      "tempMax": 306.29,
+      "windSpeed": 1.54,
+      "windDirection": 225,
+      "windDirectionDegrees": 230,
+      "pressure": 1012,
+      "dateAndTime": "25-08-2024, 07:58:533 pm",
+      "_id": "dfd328d1-d3ca-4a70-9ce4-baddb2b5819b",
+      "stationid": "031facff-73af-4a20-9c39-274eef8ea219"
     }
   ]
 }

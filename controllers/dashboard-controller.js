@@ -1,10 +1,10 @@
 import { stationStore } from "../models/station-store.js";
 import { accountsController } from "./accounts-controller.js";
 import { reportStore } from "../models/report-store.js";
-import axios from "axios";
 
 
 export const dashboardController = {
+
   async index(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
     const viewData = {
@@ -18,14 +18,21 @@ export const dashboardController = {
 
   async addStation(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
-    const newstation = {
+    const station = {
       name: request.body.name,
-      latitude: Number(request.body.latitude),
-      longitude: Number(request.body.longitude),
       userid: loggedInUser._id
     };
-    console.log(`adding station ${newstation.name}`);
-    await stationStore.addStation(newstation);
+    const latestReport = await reportStore.getReportCurrentWeather(station.name);
+    const newStation = {
+      name: station.name,
+      latestReport,
+      userid: loggedInUser._id
+     };
+
+    console.log(newStation.latestReport.code);
+    console.log(newStation.latestReport.weatherIcon)
+    console.log(`adding station ${newStation.name}`);
+    await stationStore.addStation(newStation);
     response.redirect("/dashboard");
   },
 
@@ -36,17 +43,3 @@ export const dashboardController = {
     response.redirect("/dashboard");
   }
 };
-
-
-// async addReport(request, response) {
-//   const station = await stationStore.getStationById(request.params.id);
-//   const newReport = {
-//       code: Number(request.body.code),
-//       temperature: Number(request.body.temperature),
-//       windSpeed: Number(request.body.windSpeed),
-//       windDirection: request.body.windDirection,
-//       pressure: Number(request.body.pressure)
-//   };
-//   console.log(`adding report ${newReport.code}`);
-//   await reportStore.addReport(station._id, newReport);
-//   response.redirect("/station/" + station._id);

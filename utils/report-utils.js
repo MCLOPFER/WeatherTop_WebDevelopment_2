@@ -34,13 +34,14 @@ export function cardinalDirectionToDegrees(cardinalDirection) {
     case "NNW":
       return 337.5;
     default:
-      return 0;
+      return "error";
   }
 }
+
+
 export function degreesToCardinalDirection(degrees) {
-  position = int((degrees/22.5)+.5)
-  cardinalDirections = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW" ];
+  const position = Math.floor((degrees/22.5)+.5)
+  const cardinalDirections = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW" ];
   return cardinalDirections[(position % 16)];
 }
-
 

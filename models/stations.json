@@ -38,18 +38,114 @@
       "_id": "07185526-69e6-44e3-9254-27f343dc2e5f"
     },
     {
-      "name": "test",
-      "latitude": 0,
-      "longitude": 0,
-      "userid": "95a7eb66-813f-4e63-8ede-6487ca6ffdf3",
-      "_id": "f8e4ac46-f63b-42d3-9bb9-ad999639edcd"
+      "weatherIcon": "../views/partials/icons/error.hbs",
+      "code": 803,
+      "temperature": "26.2",
+      "windSpeed": 3.95,
+      "pressure": 1012,
+      "windDirection": "SW",
+      "latitude": 3.6658,
+      "longitude": 9.6419,
+      "_id": "23af2198-d086-4ef7-8c1c-0ae30e74f7fe"
     },
     {
-      "name": "hello",
-      "latitude": 0,
-      "longitude": 0,
+      "weatherIcon": "../views/partials/icons/error.hbs",
+      "code": 801,
+      "temperature": "37.6",
+      "windSpeed": 6.17,
+      "pressure": 1008,
+      "windDirection": "E",
+      "latitude": 41.6561,
+      "longitude": -0.8773,
+      "_id": "2c53402f-26dd-4b34-8885-ccd038fd82b0"
+    },
+    {
+      "weatherIcon": "../views/partials/icons/error.hbs",
+      "code": 801,
+      "temperature": "37.6",
+      "windSpeed": 6.17,
+      "pressure": 1008,
+      "windDirection": "E",
+      "latitude": 41.6561,
+      "longitude": -0.8773,
+      "_id": "2754df62-0b4f-4975-b33e-3670be5de361"
+    },
+    {
+      "weatherIcon": "../views/partials/icons/error.hbs",
+      "code": 800,
+      "temperature": "37.1",
+      "windSpeed": 2.68,
+      "pressure": 1009,
+      "windDirection": "SSW",
+      "latitude": 37.3824,
+      "longitude": -5.9761,
+      "_id": "501da26b-2574-41fe-9de6-e37862b72e88"
+    },
+    {
+      "weatherIcon": "../views/partials/icons/error.hbs",
+      "code": 803,
+      "temperature": "26.8",
+      "windSpeed": 2.06,
+      "pressure": 1014,
+      "windDirection": "NE",
+      "latitude": 38.3452,
+      "longitude": -0.4815,
+      "_id": "0c874c0f-d7aa-4fcb-a9a9-17b05bd15039"
+    },
+    {
+      "weatherIcon": "../views/partials/icons/error.hbs",
+      "code": 803,
+      "temperature": "26.8",
+      "windSpeed": 2.06,
+      "pressure": 1014,
+      "windDirection": "NE",
+      "latitude": 38.3452,
+      "longitude": -0.4815,
+      "_id": "e2a6d5bf-961f-4b58-b685-6866f8cc5dc4"
+    },
+    {
+      "name": "londres",
+      "latestReport": {
+        "name": "londres",
+        "latitude": 51.5085,
+        "longitude": -0.1257,
+        "weatherIcon": "../views/partials/icons/cloudy",
+        "code": 801,
+        "description": "few clouds",
+        "temperature": "17.4",
+        "tempFahrenheit": "63.0",
+        "tempFeelsLike": 289.93,
+        "tempMin": 289.1,
+        "tempMax": 291.21,
+        "windSpeed": 6.69,
+        "windDirection": "SW",
+        "windDirectionDegrees": 220,
+        "pressure": 1018
+      },
       "userid": "95a7eb66-813f-4e63-8ede-6487ca6ffdf3",
-      "_id": "6e10c796-a492-4069-ae00-cbaa5540a821"
+      "_id": "3bdee8ab-b053-445f-a310-ad42aaa9d719"
+    },
+    {
+      "name": "madrid",
+      "latestReport": {
+        "name": "madrid",
+        "latitude": 40.4165,
+        "longitude": -3.7026,
+        "weatherIcon": "../views/partials/icons/sun",
+        "code": 800,
+        "description": "clear sky",
+        "temperature": "32.5",
+        "tempFahrenheit": "90.2",
+        "tempFeelsLike": 303.62,
+        "tempMin": 303.66,
+        "tempMax": 306.29,
+        "windSpeed": 1.54,
+        "windDirection": "SW",
+        "windDirectionDegrees": 230,
+        "pressure": 1012
+      },
+      "userid": "95a7eb66-813f-4e63-8ede-6487ca6ffdf3",
+      "_id": "031facff-73af-4a20-9c39-274eef8ea219"
     }
   ]
 }

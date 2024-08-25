@@ -1,9 +1,74 @@
 
-<div class="box has-text-centered">
+<div class="box align-content">
   <div class="columns is-mobile">
-   {{>station-summary}}
+    {{>station-summary}}
   </div>
 </div>
+<div class="box title is-5 has-text-centered mb-0 pb-0">Temperature Trend</div>
+<div  class="box mb-6 mt-1 has-text-centered" id="tempChart" style="border-top-style:groove;border-bottom-style:groove;"></div>
+
+<script>
+  const tempData = {
+    labels: [
+      {{#each trendData.trendLabels}}
+        "{{this}}",
+      {{/each}}
+    ],
+    datasets: [
+      {
+        name: "Temperature",
+        values: [{{#each trendData.tempTrend}}{{this}},{{/each}}]
+      },
+      {
+        name: "Feels Like",
+        values: [{{#each trendData.feelsLike}}{{this}},{{/each}}]
+      },
+      {
+        name: "Max",
+        values: [{{#each trendData.tempMax}}{{this}},{{/each}}]
+      },
+      {
+        name: "Min",
+        values: [{{#each trendData.tempMin}}{{this}},{{/each}}]
+      }
+    ]
+  }
+
+  const tempChart = new frappe.Chart("#tempChart", {
+    data: tempData,
+    type: "bar",
+    height: 180,
+    colors: ["#ff0095","purple",]
+  });
+
+</script>
+
+<div class="box title is-5 has-text-centered mb-0 pb-0">Humidity Trend</div>
+<div  class="box mb-6 mt-1 has-text-centered" id="humidityChart" style="border-top-style:groove;border-bottom-style:groove;"></div>
+<script>
+  const humedityData = {
+    labels: [
+      {{#each trendData.trendLabels}}
+        "{{this}}",
+      {{/each}}
+    ],
+    datasets: [
+      {
+        name: "Humidity %", type: "line",
+        values: [{{#each trendData.humidity}}{{this}},{{/each}}]
+      }
+    ]
+  }
+
+  const humidityChart = new frappe.Chart("#humidityChart", {
+    data: humedityData,
+    type: "line",
+    height: 180,
+    colors: ["red"]
+  });
+</script>
+
+<br>
 <table class="table is-fullwidth">
   <thead>
     <tr>

@@ -1,8 +1,9 @@
 import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
-import { sortListAlphabeticallyByName } from "../utils/store-utils.js";
+import { sortListAlphabeticallyByName } from "../utils/station-utils.js";
 import { reportStore } from "./report-store.js";
 
+//need to create reportdb to delete on cascade
 const stationsdb = initStore("stations");
 const reportsdb = initStore("reports");
 
