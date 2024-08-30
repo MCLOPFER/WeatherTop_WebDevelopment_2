@@ -1,10 +1,26 @@
 
 <div class="box align-content">
   <div class="columns is-mobile">
+    <div class="column">
+      <div class="box has-background-black" style="height: 100%;">
+        <div class="columns">
+          <div class="column is-size-5 has-text-white has-text-weight-bold">
+            Weather
+          </div>
+          <div class="column is-vcentered" name="weatherIcon">
+            {{> (lookup station.latestReport 'weatherIcon' )}}
+          </div>
+        </div>
+        <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
+          <div class="is-capitalized">{{station.latestReport.description}}</div>
+          Code: {{station.latestReport.code}}
+        </div>
+      </div>
+    </div>
     {{>station-summary}}
   </div>
 </div>
-<div class="box title is-5 has-text-centered mb-0 pb-0">Temperature Trend</div>
+<div class="box title is-5 has-text-centered mb-0 pb-0">Temperature (°C)</div>
 <div  class="box mb-6 mt-1 has-text-centered" id="tempChart" style="border-top-style:groove;border-bottom-style:groove;"></div>
 
 <script>
@@ -43,7 +59,7 @@
 
 </script>
 
-<div class="box title is-5 has-text-centered mb-0 pb-0">Humidity Trend</div>
+<div class="box title is-5 has-text-centered mb-0 pb-0">Humidity (%)</div>
 <div  class="box mb-6 mt-1 has-text-centered" id="humidityChart" style="border-top-style:groove;border-bottom-style:groove;"></div>
 <script>
   const humedityData = {
@@ -72,12 +88,12 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <th class="has-text-centered">Date & Time</th>
-      <th class="has-text-centered">Code</th>
-      <th class="has-text-centered">Temperature</th>
-      <th class="has-text-centered">Wind Speed</th>
-      <th class="has-text-centered">Wind Direction</th>
-      <th class="has-text-centered">Pressure</th>
+      <th class="has-text-centered is-vcentered">Date & Time</th>
+      <th class="has-text-centered is-vcentered">Code</th>
+      <th class="has-text-centered is-vcentered">Temperature</th>
+      <th class="has-text-centered is-vcentered">Wind Speed</th>
+      <th class="has-text-centered is-vcentered">Wind Direction</th>
+      <th class="has-text-centered is-vcentered">Pressure</th>
       <th></th>
       <th></th>
     </tr>
@@ -85,35 +101,30 @@
   <tbody class="has-text-centered">
     {{#each station.reports}}
     <tr>
-      <td class="pt-5">
+      <td class="pt-5 is-vcentered">
         {{dateAndTime}}
       </td>
-      <td class="pt-5">
-        {{code}}
-        {{reading.code}}
+      <td class="pt-5  is-vcentered">
+        {{code}}{{reading.code}}
       </td>
-      <td class="pt-5">
-        {{temperature}}
-        {{reading.temperature}}
+      <td class="pt-5 is-vcentered">
+        {{temperature}}{{reading.temperature}} °C
       </td>
-      <td class="pt-5">
-        {{windSpeed}}
-        {{reading.windSpeed}}
+      <td class="pt-5 is-vcentered">
+        {{windSpeed}}{{reading.windSpeed}} m/s
       </td>
-      <td class="pt-5">
-        {{windDirection}}
-        {{reading.windDirection}}
+      <td class="pt-5 is-vcentered">
+        {{windDirection}}{{reading.windDirection}}
       </td>
-      <td class="pt-5">
-        {{pressure}}
-        {{reading.preassure}}
+      <td class="pt-5 is-vcentered">
+        {{pressure}}{{reading.preassure}} hPa
       </td>
-      <td>
+      <td class="pt-5 is-vcentered">
         <a href="/station/{{../station._id}}/deletereport/{{_id}}" class="button">
           {{>icons/delete}}
         </a>
       </td>
-      <td>
+      <td class="pt-5 is-vcentered">
         <a href="/station/{{../station._id}}/editreport/{{_id}}" class="button">
           {{>icons/edit}}
         </a>

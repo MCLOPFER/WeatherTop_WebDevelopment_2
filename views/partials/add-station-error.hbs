@@ -1,5 +1,14 @@
 <form action="/dashboard/addStation" method="POST">
-  <div class="field is-horizontal mt-6">
+
+  <div class="columns is-vcentered mb-0 mt-6">
+    <div class="column is-1 has-text-centered mt-1">
+      {{>icons/error}}
+    </div>
+    <div class="column has-text-danger">
+      ERROR! Invalid details entered
+    </div>
+  </div>
+  <div class="field is-horizontal mt-1">
     <div class="field-body has-text-centered is-vcentered">
       <div class="field">
         <div class="columns">

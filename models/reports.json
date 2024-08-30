@@ -1,25 +1,4 @@
 {
   "file": "./models/reports.json",
-  "reports": [
-    {
-      "name": "madrid",
-      "latitude": 40.4165,
-      "longitude": -3.7026,
-      "weatherIcon": "../views/partials/icons/sun",
-      "code": 800,
-      "description": "clear sky",
-      "temperature": "32.5",
-      "tempFahrenheit": "90.2",
-      "tempFeelsLike": 303.62,
-      "tempMin": 303.66,
-      "tempMax": 306.29,
-      "windSpeed": 1.54,
-      "windDirection": 225,
-      "windDirectionDegrees": 230,
-      "pressure": 1012,
-      "dateAndTime": "25-08-2024, 07:58:533 pm",
-      "_id": "dfd328d1-d3ca-4a70-9ce4-baddb2b5819b",
-      "stationid": "031facff-73af-4a20-9c39-274eef8ea219"
-    }
-  ]
+  "reports": []
 }

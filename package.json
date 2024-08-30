@@ -17,6 +17,8 @@
     "express-handlebars": "^6.0.7",
     "frappe-charts": "^1.6.2",
     "fs-extra": "^11.1.0",
+    "jquery-csv": "^1.0.40",
+    "leaflet": "^1.9.4",
     "lowdb": "^5.1.0",
     "uuid": "^9.0.0"
   },

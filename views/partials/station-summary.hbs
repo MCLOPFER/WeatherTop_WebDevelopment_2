@@ -1,22 +1,7 @@
 
+{{!-- latestReport.X shows the data to the Dashboard --}}
+{{!-- station.latestReport.X shows the data to station-view --}}
 
-  <div class="column">
-    <div class="box has-background-black" style="height: 100%;">
-      <div class="columns">
-        <div class="column is-size-5 has-text-white has-text-weight-bold">
-          Weather
-        </div>
-        <div class="column" name="weatherIcon">
-          {{latestReport.weatherIcon}}{{station.latestReport.weatherIcon}}
-        </div>
-      </div>
-      <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
-        Code: {{latestReport.code}}{{station.latestReport.code}}
-        <br>
-        <div class="is-capitalized">{{latestReport.description}}{{station.latestReport.description}}</div>
-      </div>
-    </div>
-  </div>
   <div class="column">
     <div class="box has-background-black" style="height: 100%;">
       <div class="columns">
@@ -28,15 +13,15 @@
         </div>
       </div>
       <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
-        {{latestReport.temperature}}{{station.latestReport.temperature}}°C
+        {{latestReport.temperature}}{{station.latestReport.temperature}} °C
         <br>
-        {{latestReport.tempFahrenheit}}{{station.latestReport.tempFahrenheit}}°F
+        {{latestReport.tempFahrenheit}}{{station.latestReport.tempFahrenheit}} °F
         <br>
-        Feels like: {{latestReport.tempFeelsLike}}{{station.latestReport.tempFeelsLike}}
+        Feels like: {{latestReport.tempFeelsLike}}{{station.latestReport.tempFeelsLike}} °C
         <br>
-        Min: {{latestReport.tempMin}}{{station.latestReport.tempMin}}
+        Min: {{latestReport.tempMin}}{{station.latestReport.tempMin}} °C
         <br>
-        Max: {{latestReport.tempMax}}{{station.latestReport.tempMax}}
+        Max: {{latestReport.tempMax}}{{station.latestReport.tempMax}} °C
       </div>
     </div>
   </div>
@@ -51,10 +36,9 @@
         </div>
       </div>
       <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
-        Speed: {{latestReport.windSpeed}}{{station.latestReport.windSpeed}}
+        Speed: {{latestReport.windSpeed}}{{station.latestReport.windSpeed}} m/s
         <br>
-        Direction: {{latestReport.windDirectionDegrees}} {{latestReport.windDirection}}
-                   {{station.latestReport.windDirectionDegrees}} {{station.latestReport.windDirection}}
+        Direction: {{latestReport.windDirectionDegrees}} {{latestReport.windDirection}}{{station.latestReport.windDirectionDegrees}} {{station.latestReport.windDirection}}
       </div>
     </div>
   </div>
@@ -69,7 +53,7 @@
         </div>
       </div>
       <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
-        hPa: {{latestReport.pressure}}{{station.latestReport.pressure}}
+        {{latestReport.pressure}}{{station.latestReport.pressure}} hPa
       </div>
     </div>
   </div>

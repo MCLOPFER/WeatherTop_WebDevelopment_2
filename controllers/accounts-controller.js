@@ -1,3 +1,4 @@
+
 import { userStore } from "../models/user-store.js";
 
 export const accountsController = {
@@ -46,7 +47,7 @@ export const accountsController = {
   async authenticate(request, response) {
     const user = await userStore.authenticateUserByEmail(request.body.email, request.body.password);
     if (user) {
-      response.cookie("station", user.email);
+      response.cookie("userid", user._id);
       console.log(`logging in ${user.email}`);
       response.redirect("/dashboard");
     } else {
@@ -56,9 +57,9 @@ export const accountsController = {
   },
 
   async getLoggedInUser(request) {
-    const userEmail = request.cookies.station;
-    console.log(`email to get logged in user: ${userEmail}`)
-    return userStore.getUserByEmail(userEmail);
-  }
-
+    //
+    const userId = request.cookies.userid;
+    console.log(`userid to get logged in user: ${userId}`)
+    return await userStore.getUserById(userId);
+  },
 };

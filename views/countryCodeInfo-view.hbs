@@ -1,0 +1,41 @@
+{{> menu active=""}}
+
+<section class="section">
+  <div class="columns has-text-centered mt-2">
+    <div class="column is-1">
+      <a id="back" class="button is-white" href="/dashboard">{{>icons/back}}</a>
+    </div>
+    <div class="column title mr-6 pr-6">
+      Country Codes:
+    </div>
+  </div>
+  <div class="columns mt-6 ml-1 pl-6">
+    <div class="column is-offset-one-quarter">
+      <table class="table ml-6 has-content-centered">
+        <thead class="title is-size-5">
+          <tr>
+            <th class="is-vcentered">Name</th>
+            <th class="has-text-centered is-vcentered">Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          //For each country
+          {{#each countryCodes}}
+          <tr>
+            <td>
+              //Display name
+              {{name}}
+            </td>
+            <td class="has-text-centered">
+              //Display code
+              {{code}}
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+

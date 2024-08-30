@@ -1,11 +1,11 @@
 {{> menu}}
 <section class="section">
-  <div class="columns has-text-centered">
+  <div class="columns has-text-centered mt-2">
     <div class="column is-1">
-      <a id="back" class="button is-white" href="/dashboard">{{>icons/back}}</a>
+      <a class="button is-white" href="/dashboard">{{>icons/back}}</a>
     </div>
     <div class="column">
-      <div class="title is-uppercase mr-6 pr-6">
+      <div class="title mr-6 pr-6">
         {{station.name}}
       </div>
       <div class="columns has-text-centered">
@@ -20,4 +20,21 @@
   </div>
   {{> list-reports}}
   {{> add-report}}
+  <div id="map" style="height: 500px"></div>
 </section>
+
+//Script make the map appears
+<script>
+    const lat = {{station.latestReport.latitude}};
+    const lon = {{station.latestReport.longitude}};
+    const map = L.map('map').setView([lat, lon], 4);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const marker = L.marker([lat, lon]).addTo(map);
+  
+    const popup = L.popup()
+    .setLatLng([lat, lon])
+  </script>

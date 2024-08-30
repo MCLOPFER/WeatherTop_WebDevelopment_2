@@ -1,16 +1,25 @@
+
 import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
-import { sortListAlphabeticallyByName } from "../utils/station-utils.js";
+import { sortListAlphabeticallyByName } from "../utils/utils.js";
 import { reportStore } from "./report-store.js";
 
-//need to create reportdb to delete on cascade
 const stationsdb = initStore("stations");
+//Create reportdb to delete on cascade
 const reportsdb = initStore("reports");
+//Create countryCodesdb to read countryCodes.json
+const countryCodesdb = initStore("countryCodes");
 
 export const stationStore = {
   async getAllStations() {
     await stationsdb.read();
     return stationsdb.data.stations;
+  },
+
+  //Reading de data from countryCodes.json file
+  async getcountryCodes(){
+    await countryCodesdb.read();
+    return countryCodesdb.data.countryCodes;
   },
 
   async addStation(station) {
@@ -21,9 +30,9 @@ export const stationStore = {
     return station;
   },
 
-  async getStationById(id) {
+  async getStationById(stationid) {
     await stationsdb.read();
-    const list = stationsdb.data.stations.find((station) => station._id === id);
+    const list = stationsdb.data.stations.find((station) => station._id === stationid);
     list.reports = await reportStore.getReportsByStationId(list._id);
     return list;
   },
@@ -31,19 +40,24 @@ export const stationStore = {
   async deleteStationById(stationid) {
     await stationsdb.read();
     await reportsdb.read();
-
-    // generate a list of report objects to delete
+    //Generate a list of report objects to delete
     const stationReports = reportsdb.data.reports.filter((report) => report.stationid === stationid);
     await reportStore.deleteReportList(stationReports);
-
-    // finally once the stations assosiated reports are deleted, delete the station
+    //Finally once the stations assosiated reports are deleted, delete the station
     const stationIndex = stationsdb.data.stations.findIndex((station) => station._id === stationid);
     stationsdb.data.stations.splice(stationIndex, 1);
     await stationsdb.write();
   },
 
-  async deleteAllStations() {
-    stationsdb.data.stations = [];
+  async deleteStationList(stationList) {
+    await stationsdb.read();
+    await reportsdb.read();
+
+    stationList.forEach(stationToDelete => {
+      console.log(`deleting station: ${stationToDelete._id}`)
+      const stationIndex = stationsdb.data.stations.findIndex((station) => station._id === stationToDelete);
+      stationsdb.data.stations.splice(stationIndex, 1);
+    });
     await stationsdb.write();
   },
 
@@ -52,8 +66,10 @@ export const stationStore = {
     return stationsdb.data.stations.filter((station) => station.userid === userid);
   },
 
+  //Generate a list of stations by user Id and sorting the list Alphabetically
   async getStationsByUserIdAlphabetically(userid) {
     await stationsdb.read();
     return sortListAlphabeticallyByName(stationsdb.data.stations.filter((station) => station.userid === userid));
   },
+
 };

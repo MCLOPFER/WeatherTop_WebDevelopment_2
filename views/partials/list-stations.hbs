@@ -1,8 +1,12 @@
+
 {{#each stations}}
   <div class="box has-text-centered m-0 py-1" style="border-top-style: groove;">
     <div class="columns m-0 has-text-left is-vcentered">
-      <div class="column is-size-4 is-uppercase">
-        {{latestReport.name}}
+      <div class="column is-1 pr-0 has-text-centered">
+        {{>icons/location}}
+      </div>
+      <div class="column is-size-4 is-uppercase pl-0">
+        {{latestReport.name}} ({{latestReport.countryCode}})
       </div>
       <div class="column is-size-6">
         Lat: {{latestReport.latitude}}
@@ -21,6 +25,22 @@
   <div class="box is-mobile has-text-centered">
     <a href="/station/{{_id}}" class="is-size-4 has-text-white is-capitalized"></a>
     <div class="columns is-mobile">
+      <div class="column">
+        <div class="box has-background-black" style="height: 100%;">
+          <div class="columns">
+            <div class="column is-size-5 has-text-white has-text-weight-bold">
+              Weather
+            </div>
+            <div class="column" name="weatherIcon">
+              {{> (lookup latestReport 'weatherIcon' )}}
+            </div>
+          </div>
+          <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
+            <div class="is-capitalized">{{latestReport.description}}</div>
+            Code: {{latestReport.code}}
+          </div>
+        </div>
+      </div>
       {{>station-summary}}
     </div>
   </div>

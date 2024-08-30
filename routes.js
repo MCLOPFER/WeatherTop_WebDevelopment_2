@@ -17,6 +17,7 @@ router.post("/register", accountsController.register);
 router.post("/authenticate", accountsController.authenticate);
 
 router.get("/dashboard", dashboardController.index);
+router.get("/countryCodeInfo", dashboardController.countryCodeInfo);
 router.post("/dashboard/addstation", dashboardController.addStation);
 router.get("/dashboard/deletestation/:id", dashboardController.deleteStation);
 router.get("/station/:id", stationController.index);
@@ -28,6 +29,7 @@ router.get("/station/:stationid/deletereport/:reportid", stationController.delet
 
 router.get("/user/:userid", userController.index);
 router.post("/user/:userid/update", userController.update);
+router.get("/deleteuser", userController.deleteUser);
 
 router.get("/about", aboutController.index);
 
