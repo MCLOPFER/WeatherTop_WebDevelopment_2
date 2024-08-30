@@ -97,3 +97,55 @@ export function validateEmail(email) {
     }
     return weatherIcon;
   }
+
+  export function msToBeaufort(windSpeed) {
+    windSpeed = Math.abs(windSpeed);
+    if (windSpeed <= 0.2) {
+        return 0;
+    }
+    if (windSpeed <= 1.5) {
+        return 1;
+    }
+    if (windSpeed <= 3.3) {
+        return 2;
+    }
+    if (windSpeed <= 5.4) {
+        return 3;
+    }
+    if (windSpeed <= 7.9) {
+        return 4;
+    }
+    if (windSpeed <= 10.7) {
+        return 5;
+    }
+    if (windSpeed <= 13.8) {
+        return 6;
+    }
+    if (windSpeed <= 17.1) {
+        return 7;
+    }
+    if (windSpeed <= 20.7) {
+        return 8;
+    }
+    if (windSpeed <= 24.4) {
+        return 9;
+    }
+    if (windSpeed <= 28.4) {
+        return 10;
+    }
+    if (windSpeed <= 32.6) {
+        return 11;
+    }
+    return 12;
+}
+
+export function msToMph(windSpeed){
+  let mph = windSpeed/0.44704;
+  return Math.round(mph);
+}
+
+export function windChill(kelvinToFahrenheit, windSpeedMph){
+  let windChillFormula= (35.74 + (0.6215 * kelvinToFahrenheit)) - (35.75 * Math.pow(windSpeedMph,0.16)) + (0.4275 * kelvinToFahrenheit * Math.pow(windSpeedMph,0.16)); ;
+  let windChill= Math.round(windChillFormula);
+  return windChill;
+}

@@ -6,6 +6,9 @@ import { degreesToCardinalDirection } from "../utils/utils.js";
 import { kelvinToCelcius } from "../utils/utils.js";
 import { kelvinToFahrenheit } from "../utils/utils.js";
 import { getWeatherIcon } from "../utils/utils.js";
+import { msToBeaufort } from "../utils/utils.js";
+import { windChill } from "../utils/utils.js";
+import { msToMph } from "../utils/utils.js";
 //Library component to make API request
 import axios from "axios";
 
@@ -94,9 +97,12 @@ export const reportStore = {
       generateReport.tempMax = kelvinToCelcius(currentWeather.main.temp_max);
       generateReport.tempFeelsLike = kelvinToCelcius(currentWeather.main.feels_like);
       generateReport.windSpeed = currentWeather.wind.speed;
-      generateReport.pressure = currentWeather.main.pressure;
+      generateReport.windSpeedBeaufort = msToBeaufort(currentWeather.wind.speed);
+      generateReport.windSpeedMph = msToMph(currentWeather.wind.speed);
+      generateReport.windChill = windChill(kelvinToFahrenheit(currentWeather.main.temp), msToMph(currentWeather.wind.speed))
       generateReport.windDirection = degreesToCardinalDirection(currentWeather.wind.deg);
       generateReport.windDirectionDegrees = currentWeather.wind.deg;
+      generateReport.pressure = currentWeather.main.pressure;
       generateReport.visibility = currentWeather.visibility;
     }
     //Creating an array giving value to 'names' used in the HTML
@@ -114,9 +120,12 @@ export const reportStore = {
     tempMax: generateReport.tempMax,
     tempFeelsLike: generateReport.tempFeelsLike,
     windSpeed: generateReport.windSpeed,
-    pressure: generateReport.pressure,
+    windSpeedBeaufort: generateReport.windSpeedBeaufort,
+    windSpeedMph: generateReport.windSpeedMph,
+    windChill: generateReport.windChill,
     windDirection: generateReport.windDirection,
     windDirectionDegrees: generateReport.windDirectionDegrees,
+    pressure: generateReport.pressure,
     visibility: generateReport.visibility
     }
 

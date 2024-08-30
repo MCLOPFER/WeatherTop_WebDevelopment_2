@@ -105,7 +105,7 @@ To stop the project, enter Ctrl-C in the terminal,
 ## How access it
 You would just need internet and a device where you can open the following link: 
 <br/>
-https://gilded-holistic-bridge.glitch.me/
+
 
 ## Directory structure
 ```

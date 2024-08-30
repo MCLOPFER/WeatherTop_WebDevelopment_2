@@ -36,9 +36,17 @@
         </div>
       </div>
       <div class="is-size-7 has-text-white has-text-left has-text-grey-light">
-        Speed: {{latestReport.windSpeed}}{{station.latestReport.windSpeed}} m/s
+        Speed:
+        <br/> 
+        {{latestReport.windSpeed}}{{station.latestReport.windSpeed}} m/s
+        <br/>
+        {{latestReport.windSpeedBeaufort}}{{station.latestReport.windSpeedBeaufort}} Btf
         <br>
+        {{latestReport.windSpeedMph}}{{station.latestReport.windSpeedMph}} mph
+        <br/>
         Direction: {{latestReport.windDirectionDegrees}} {{latestReport.windDirection}}{{station.latestReport.windDirectionDegrees}} {{station.latestReport.windDirection}}
+        <br/>
+        Wind Chill: {{latestReport.windChill}}{{station.latestReport.windChill}} °
       </div>
     </div>
   </div>
