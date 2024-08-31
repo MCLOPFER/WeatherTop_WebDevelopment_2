@@ -21,14 +21,25 @@ export const stationController = {
     const stationCountryCode = station.countryCode;
     const chartUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${stationName},${stationCountryCode}&units=metric&appid=${APIKey}`;
     const result = await axios.get(chartUrl);
+    //The result of the API is a json file with the weather from X every 3 hourse since now
+    //if result == successful
     if (result.status == 200) {
+      //Getting the following information, from each element, from the array return from the API:
+      //list.main.temp
       trendChartReport.tempTrend = [];
+      //list.main.temp_max
       trendChartReport.tempMax = [];
+      //list.main.temp_min
       trendChartReport.tempMin = [];
+      //list.main.feels_like
       trendChartReport.feelsLike = [];
+      //list.dt_text (date and time)
       trendChartReport.trendLabels = [];
+      //list.main.humidity
       trendChartReport.humidity = [];
       const trends = result.data.list;
+
+      //Using the first 10 elements returned from the API 
       for (let i=0; i<10; i++) {
         trendChartReport.tempTrend.push(trends[i].main.temp);
         trendChartReport.tempMax.push(trends[i].main.temp_max);
@@ -38,6 +49,7 @@ export const stationController = {
         trendChartReport.humidity.push(trends[i].main.humidity);
       }
     }
+    //Adding trendData to the viewData
     viewData.trendData = trendChartReport;
     response.render("station-view", viewData);
   },
@@ -54,7 +66,7 @@ export const stationController = {
         windDirection: request.body.windDirection,
         pressure: Number(request.body.pressure)
     };
-    console.log(`adding report ${newReport.code}`);
+    console.log(`Adding new Report ${newReport.code}`);
     await reportStore.addReport(station._id, newReport);
     response.redirect("/station/" + station._id);
   },
@@ -63,12 +75,11 @@ export const stationController = {
     const station = await stationStore.getStationById(request.params.id);
     const date = new Date;
     const now = dayjs(date).format('DD-MM-YYYY, hh:mm:SSS a');
-    console.log("rendering new report");
 
     const latestReport = await reportStore.getReportCurrentWeather(station.name, station.countryCode);
     latestReport.dateAndTime = now;
 
-    console.log(`adding report ${latestReport.code}`);
+    console.log(`Adding Report ${latestReport.code}`);
     await reportStore.addReport(station._id, latestReport);
     response.redirect("/station/" + station._id);
   },

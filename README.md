@@ -46,39 +46,28 @@ Weather reporting App
 - [VSCode](https://code.visualstudio.com/)
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [npm](https://docs.npmjs.com/cli/v10/commands/npm-install)
-- [Nunjucks](https://mozilla.github.io/nunjucks/getting-started.html)
 
 ### Build command
-To build this project run the following command from the root directory of the repo:
-```
+To build this project run the following commands from the root directory of the repo:
+``` console
+# clone git repo
+$ git clone https://github.com/MCLOPFER/WeatherTop_WebDevelopment_2.git
+Cloning into 'WeatherTop_WebDevelopment_2'...
+...
 
+$ cd WeatherTop_WebDevelopment_2
+
+# install required node packages
+$ npm install
+added 95 packages, and audited 96 packages in 498ms
+...
 ```
 
 ## Usage
-To run this project locally run the following command:
-```
-git clone https://github.com/MCLOPFER/WeatherTop_WebDevelopment_2.git
-Cloning into 'WeatherTop_WebDevelopment_2'...
-remote: Enumerating objects: 239, done.
-remote: Counting objects: 100% (239/239), done.
-remote: Compressing objects: 100% (158/158), done.
-remote: Total 239 (delta 111), reused 197 (delta 72), pack-reused 0 (from 0)
-Receiving objects: 100% (239/239), 61.46 KiB | 5.59 MiB/s, done.
-Resolving deltas: 100% (111/111), done.
-
-WeatherTop_WebDevelopment_2 % npm install
-npm warn EBADENGINE Unsupported engine {
-npm warn EBADENGINE   package: 'glitch-template@0.0.1',
-npm warn EBADENGINE   required: { node: '16.x.x' },
-npm warn EBADENGINE   current: { node: 'v20.11.1', npm: '10.8.2' }
-npm warn EBADENGINE }
-added 95 packages, and audited 96 packages in 498ms
-13 packages are looking for funding
-  run `npm fund` for details
-found 0 vulnerabilities
-
-maricruzlopez@MacBook-Air WeatherTop_WebDevelopment_2 % npm start
-
+To run this project locally using npm, run the following command:
+``` console
+# start the project
+$ npm start
 > glitch-template@0.0.1 start
 > node server.js
 
@@ -87,7 +76,7 @@ Todolist started on http://localhost:4000
 
 The application will now be running on: http://localhost:4000/
 
-To stop the project, enter Ctrl-C in the terminal,
+To stop the project, enter Ctrl-C in the terminal.
 
 ## Tools and Technology used
 - HTML
@@ -119,10 +108,7 @@ You would just need internet and a device where you can open the following link:
 │   ├── station-controller.js
 │   └── user-controller.js
 ├── images
-│   ├── humidity-trend.png
-│   ├── logo.png
-│   ├── map.png
-│   └── temperature-trend.png
+│   └── logo.png
 ├── models
 │   ├── countryCodes.json
 │   ├── object-store.js

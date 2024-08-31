@@ -9,10 +9,10 @@ const stationsdb = initStore("stations");
 const reportsdb = initStore("reports");
 
 export const userStore = {
-  async getAllUsers() {
-    await userdb.read();
-    return userdb.data.users;
-  },
+  // async getAllUsers() {
+  //   await userdb.read();
+  //   return userdb.data.users;
+  // },
 
   async addUser(user) {
     //if an invalid email is entered throw error
@@ -32,11 +32,11 @@ export const userStore = {
     return userdb.data.users.find((user) => user._id === id);
   },
 
-  async getUserByEmail(email) {
-    await userdb.read();
-    console.log(`searching users for email: ${email}`)
-    return userdb.data.users.find((user) => user.email === email);
-  },
+  // async getUserByEmail(email) {
+  //   await userdb.read();
+  //   console.log(`searching users for email: ${email}`)
+  //   return userdb.data.users.find((user) => user.email === email);
+  // },
 
   async authenticateUserByEmail(email, password) {
     await userdb.read();
@@ -66,7 +66,6 @@ export const userStore = {
     await userdb.read();
     await stationsdb.read();
     await reportsdb.read();
-
     //Generate a list of stations objects by user Id
     const stationList = stationsdb.data.stations.filter((station) => station.userid === userid);
     //Deleting the list of stations

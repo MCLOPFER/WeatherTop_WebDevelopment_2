@@ -15,10 +15,10 @@ import axios from "axios";
 const reportsdb = initStore("reports"); 
 
 export const reportStore = {
-  async getAllReports() {
-    await reportsdb.read();
-    return reportsdb.data.reports;
- },
+//   async getAllReports() {
+//     await reportsdb.read();
+//     return reportsdb.data.reports;
+//  },
 
   async addReport(stationId, report) {
     await reportsdb.read();

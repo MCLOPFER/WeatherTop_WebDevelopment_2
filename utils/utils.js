@@ -139,11 +139,11 @@ export function validateEmail(email) {
     return 12;
 }
 
+//Convert wind speed m/s to mph
 export function msToMph(windSpeed){
   let mph = windSpeed/0.44704;
   return Math.round(mph);
 }
-
 export function windChill(kelvinToFahrenheit, windSpeedMph){
   let windChillFormula= (35.74 + (0.6215 * kelvinToFahrenheit)) - (35.75 * Math.pow(windSpeedMph,0.16)) + (0.4275 * kelvinToFahrenheit * Math.pow(windSpeedMph,0.16)); ;
   let windChill= Math.round(windChillFormula);

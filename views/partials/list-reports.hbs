@@ -8,6 +8,7 @@
             Weather
           </div>
           <div class="column is-vcentered" name="weatherIcon">
+            {{!-- using handelbar lookup function to load weatherIcon --}}
             {{> (lookup station.latestReport 'weatherIcon' )}}
           </div>
         </div>

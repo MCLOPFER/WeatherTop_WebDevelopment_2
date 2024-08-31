@@ -8,7 +8,7 @@ export const aboutController = {
       title: "About WeatherTop",
       userid: loggedInUser._id
     };
-    console.log("about rendering");
+    console.log("About rendering");
     response.render("about-view", viewData);
   },
 };

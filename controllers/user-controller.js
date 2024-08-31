@@ -35,10 +35,10 @@ export const userController = {
         password: "********"
       };
       console.log(`Updating User ${userId}`);
+      //Try to update user, if email invalid, catch error rand redirect it
       try{
         await userStore.updateUser(userId, userUpdate);
         console.log("User updated successfully")
-        // response.cookie("station", userUpdate.email);
         response.render("user-view-updated-successfully", userUpdate);
       } catch(err) {
         console.log('ERROR: failed to update user');

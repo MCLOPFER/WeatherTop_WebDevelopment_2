@@ -1,32 +1,4 @@
 {
   "file": "./models/stations.json",
-  "stations": [
-    {
-      "name": "Madrid",
-      "userid": "51b75ddc-8ed2-4b16-b8c6-9df3b2530b04",
-      "latestReport": {
-        "name": "madrid",
-        "countryCode": "ES",
-        "latitude": 40.4165,
-        "longitude": -3.7026,
-        "weatherIcon": "icons/cloudy",
-        "code": 802,
-        "description": "scattered clouds",
-        "temperature": "28.9",
-        "tempFahrenheit": "83.7",
-        "tempMin": "26.9",
-        "tempMax": "30.3",
-        "tempFeelsLike": "29.4",
-        "windSpeed": 2.57,
-        "windSpeedBeaufort": 2,
-        "windSpeedMph": 6,
-        "windChill": 88,
-        "windDirection": "N",
-        "windDirectionDegrees": 0,
-        "pressure": 1013,
-        "visibility": 10000
-      },
-      "_id": "322388eb-eac7-487f-a5d9-5560f8b6b9b5"
-    }
-  ]
+  "stations": []
 }

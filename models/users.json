@@ -1,12 +1,5 @@
 {
   "file": "./models/users.json",
   "users": [
-    {
-      "firstName": "test",
-      "lastName": "test",
-      "email": "test@test",
-      "password": "test",
-      "_id": "51b75ddc-8ed2-4b16-b8c6-9df3b2530b04"
-    }
   ]
 }

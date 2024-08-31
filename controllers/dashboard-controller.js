@@ -26,6 +26,7 @@ export const dashboardController = {
     };
     let latestReport = {};
     let newStation = {};
+    //Try add new station, if details entered are invalid, catching the error and redirect it
     try{
       latestReport = await reportStore.getReportCurrentWeather(request.body.name, request.body.countryCode);
       newStation = {
@@ -33,7 +34,7 @@ export const dashboardController = {
         userid: loggedInUser._id,
         latestReport
       }
-      console.log(`adding station ${newStation.name}`);
+      console.log(`Adding Station ${newStation.name}`);
       await stationStore.addStation(newStation);
       response.redirect("/dashboard");
     } catch(err){
@@ -52,7 +53,6 @@ export const dashboardController = {
   async countryCodeInfo(request, response) {
     const userId = await accountsController.getLoggedInUser(request);
     const countryCodes = await stationStore.getcountryCodes();
-    console.log(`country codes rendering`);
     const viewData = {
       title: "Country Codes Info",
       countryCodes,

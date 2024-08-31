@@ -34,6 +34,7 @@ export const accountsController = {
     };
     const user = request.body;
     console.log(`registering ${user.email}`);
+    //Try add user, if email invalid, catching the error and redirect it
     try{
       await userStore.addUser(user);
       response.redirect("/");
@@ -57,9 +58,8 @@ export const accountsController = {
   },
 
   async getLoggedInUser(request) {
-    //
+    //Saving the user ID as a cookie
     const userId = request.cookies.userid;
-    console.log(`userid to get logged in user: ${userId}`)
     return await userStore.getUserById(userId);
   },
 };
