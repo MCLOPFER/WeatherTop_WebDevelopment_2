@@ -11,11 +11,6 @@ const reportsdb = initStore("reports");
 const countryCodesdb = initStore("countryCodes");
 
 export const stationStore = {
-  // async getAllStations() {
-  //   await stationsdb.read();
-  //   return stationsdb.data.stations;
-  // },
-
   //Reading de data from countryCodes.json file
   async getcountryCodes(){
     await countryCodesdb.read();
@@ -48,17 +43,6 @@ export const stationStore = {
     stationsdb.data.stations.splice(stationIndex, 1);
     await stationsdb.write();
   },
- 
-  // async deleteStationList(stationList) {
-  //   await stationsdb.read();
-  //   // await reportsdb.read();
-  //   stationList.forEach(stationToDelete => {
-  //     console.log(`deleting station: ${stationToDelete._id}`)
-  //     const stationIndex = stationsdb.data.stations.findIndex((station) => station._id === stationToDelete);
-  //     stationsdb.data.stations.splice(stationIndex, 1);
-  //   });
-  //   await stationsdb.write();
-  // },
 
   async getStationsByUserId(userid) {
     await stationsdb.read();

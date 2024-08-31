@@ -53,5 +53,4 @@ export const userController = {
       await userStore.deleteUserById(user._id);
       response.render("index");
     }
-
   };

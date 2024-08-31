@@ -9,11 +9,6 @@ const stationsdb = initStore("stations");
 const reportsdb = initStore("reports");
 
 export const userStore = {
-  // async getAllUsers() {
-  //   await userdb.read();
-  //   return userdb.data.users;
-  // },
-
   async addUser(user) {
     //if an invalid email is entered throw error
     if(!validateEmail(user.email)){
@@ -31,12 +26,6 @@ export const userStore = {
     console.log(`searching users for id: ${id}`)
     return userdb.data.users.find((user) => user._id === id);
   },
-
-  // async getUserByEmail(email) {
-  //   await userdb.read();
-  //   console.log(`searching users for email: ${email}`)
-  //   return userdb.data.users.find((user) => user.email === email);
-  // },
 
   async authenticateUserByEmail(email, password) {
     await userdb.read();
